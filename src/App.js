@@ -38,7 +38,7 @@ class App extends React.Component {
         && cardAttr2 >= minValue
         && cardAttr3 <= maxValue
         && cardAttr3 >= minValue
-        && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= maxSum
+        && Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3) <= maxSum // tive uma ajuda do Arthur pra diminuir as linhas
       ) {
         this.setState({
           isSaveButtonDisabled: false,

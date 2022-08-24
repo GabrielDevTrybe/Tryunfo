@@ -13,6 +13,8 @@ class App extends React.Component {
     cardRare: 'normal',
     cardTrunfo: false,
     isSaveButtonDisabled: true,
+    data: [],
+    previewOn: false,
   };
 
   onInputChange = ({ target }) => {
@@ -46,9 +48,16 @@ class App extends React.Component {
       } else {
         this.setState({
           isSaveButtonDisabled: true,
+          previewOn: true,
         });
       }
     });
+  };
+
+  saveCard = (objetoInfo) => {
+    this.setState((prevState) => ({
+      data: [...prevState.data, objetoInfo],
+    }));
   };
 
   render() {
@@ -62,6 +71,8 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      data,
+      previewOn,
     } = this.state;
 
     return (
@@ -78,6 +89,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
+          onSaveButtonClick={ this.saveCard }
 
         />
         <Card
@@ -92,6 +104,20 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
 
         />
+        {
+          previewOn === true && data.map((e) => (<Card
+            key="name"
+            cardName={ e.cardName }
+            cardDescription={ e.cardDescription }
+            cardAttr1={ e.cardAttr1 }
+            cardAttr2={ e.cardAttr2 }
+            cardAttr3={ e.cardAttr3 }
+            cardImage={ e.cardImage }
+            cardRare={ e.cardRare }
+            cardTrunfo={ e.cardTrunfo }
+            isSaveButtonDisabled={ e.isSaveButtonDisabled }
+          />))
+        }
       </div>
     );
   }

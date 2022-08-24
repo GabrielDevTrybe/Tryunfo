@@ -20,7 +20,7 @@ class Card extends React.Component {
         <div>
           <h1 data-testid="name-card">
             Card
-            {cardName}
+            {/* {cardName} */}
           </h1>
         </div>
 

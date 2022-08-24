@@ -12,6 +12,7 @@ class App extends React.Component {
     cardImage: '',
     cardRare: 'normal',
     cardTrunfo: false,
+    hasTrunfo: false,
     isSaveButtonDisabled: true,
     data: [],
     previewOn: false,
@@ -58,6 +59,15 @@ class App extends React.Component {
     this.setState((prevState) => ({
       data: [...prevState.data, objetoInfo],
     }));
+    this.setState({ cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+      hasTrunfo: true,
+      isSaveButtonDisabled: true });
   };
 
   render() {
@@ -71,6 +81,7 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      hasTrunfo,
       data,
       previewOn,
     } = this.state;
@@ -90,6 +101,7 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onSaveButtonClick={ this.saveCard }
+          hasTrunfo={ hasTrunfo }
 
         />
         <Card

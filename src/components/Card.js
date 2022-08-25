@@ -16,7 +16,6 @@ class Card extends React.Component {
 
     return (
       <div>
-
         <div>
           <h1 data-testid="name-card">
             Card
@@ -81,6 +80,7 @@ Card.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
+  removeButton: PropTypes.func,
 }.isRequired;
 
 export default Card;

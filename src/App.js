@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import Button from './components/Button';
 
 class App extends React.Component {
   state = {
@@ -59,7 +60,8 @@ class App extends React.Component {
     this.setState((prevState) => ({
       data: [...prevState.data, objetoInfo],
     }));
-    this.setState({ cardName: '',
+    this.setState({
+      cardName: '',
       cardDescription: '',
       cardAttr1: 0,
       cardAttr2: 0,
@@ -67,7 +69,18 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       hasTrunfo: true,
-      isSaveButtonDisabled: true });
+      isSaveButtonDisabled: true,
+    });
+  };
+
+  excluirCard = (index) => {
+    const { data } = this.state;
+    data.slice();
+    data.splice(index, 1);
+    this.setState({ data });
+    this.setState((prevState) => ({
+      hasTrunfo: prevState.data.some((card) => card.cardTrunfo === true),
+    }));
   };
 
   render() {
@@ -116,9 +129,10 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
 
         />
+
         {
           previewOn === true && data.map((e) => (<Card
-            key="name"
+            key="id"
             cardName={ e.cardName }
             cardDescription={ e.cardDescription }
             cardAttr1={ e.cardAttr1 }
@@ -130,6 +144,9 @@ class App extends React.Component {
             isSaveButtonDisabled={ e.isSaveButtonDisabled }
           />))
         }
+        <Button
+          removeButton={ this.excluirCard }
+        />
       </div>
     );
   }

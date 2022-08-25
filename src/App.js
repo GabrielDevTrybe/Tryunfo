@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import Button from './components/Button';
 
 class App extends React.Component {
   state = {
@@ -16,7 +15,6 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     data: [],
-    previewOn: false,
   };
 
   onInputChange = ({ target }) => {
@@ -50,7 +48,6 @@ class App extends React.Component {
       } else {
         this.setState({
           isSaveButtonDisabled: true,
-          previewOn: true,
         });
       }
     });
@@ -96,7 +93,6 @@ class App extends React.Component {
       isSaveButtonDisabled,
       hasTrunfo,
       data,
-      previewOn,
     } = this.state;
 
     return (
@@ -131,22 +127,52 @@ class App extends React.Component {
         />
 
         {
-          previewOn === true && data.map((e) => (<Card
-            key="id"
-            cardName={ e.cardName }
-            cardDescription={ e.cardDescription }
-            cardAttr1={ e.cardAttr1 }
-            cardAttr2={ e.cardAttr2 }
-            cardAttr3={ e.cardAttr3 }
-            cardImage={ e.cardImage }
-            cardRare={ e.cardRare }
-            cardTrunfo={ e.cardTrunfo }
-            isSaveButtonDisabled={ e.isSaveButtonDisabled }
-          />))
+          data.map((e, index) => (
+            <div key={ index }>
+
+              <h1 data-testid="name-card">
+                {e.cardName}
+              </h1>
+
+              <img
+                data-testid="image-card"
+                src={ e.cardImage }
+                alt={ e.cardName }
+              />
+
+              <p data-testid="description-card">
+                {e.cardDescription}
+              </p>
+
+              <p data-testid="attr1-card">
+                {e.cardAttr1}
+              </p>
+
+              <p data-testid="attr2-card">
+                {e.cardAttr2}
+              </p>
+
+              <p data-testid="attr3-card">
+                {e.cardAttr3}
+              </p>
+
+              <p data-testid="rare-card">
+                {e.cardRare}
+              </p>
+
+              {e.cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : ''}
+
+              <button
+                type="button"
+                data-testid="delete-button"
+                onClick={ this.excluirCard }
+              >
+                Excluir
+              </button>
+            </div>
+          ))
         }
-        <Button
-          removeButton={ this.excluirCard }
-        />
+
       </div>
     );
   }

@@ -72,11 +72,10 @@ class App extends React.Component {
 
   excluirCard = (index) => {
     const { data } = this.state;
-    data.slice();
     data.splice(index, 1);
     this.setState({ data });
     this.setState((prevState) => ({
-      hasTrunfo: prevState.data.some((card) => card.cardTrunfo === true),
+      hasTrunfo: prevState.data.some((card) => card.cardTrunfo),
     }));
   };
 

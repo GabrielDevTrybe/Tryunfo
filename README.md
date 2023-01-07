@@ -1,5 +1,5 @@
 
-Neste projeto, desenvikvu as seguintes habilidades:
+Neste projeto, desenvolvi as seguintes habilidades:
 
  * Ler o estado de um componente e usá-lo para alterar o que exibimos no browser
 

@@ -12,3 +12,5 @@ Neste projeto, desenvikvu as seguintes habilidades:
   * Criar formulários utilizando sintaxe JSX com as tags: `input`, `textarea`, `select`, `form`, `checkbox`
 
   * Transmitir informações de componentes filhos para componentes pais via callbacks
+  
+  OBS: Os aquivos desenvolvidos por mim estão dentro da pasta src, o restante dou créditos a Trybe.

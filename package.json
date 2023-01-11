@@ -1,7 +1,7 @@
 {
-  "homepage" : "Tryunfo/",
-  "name": "tryunfo",
+  "name": "Tryunfo",
   "version": "1.0.1",
+  "homepage" : "Tryunfo/",
   "private": true,
   "engines": {
     "node": "16"
